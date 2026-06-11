@@ -2,11 +2,12 @@ import asyncio
 import time
 
 from fastapi import FastAPI, Path, Query
-from pydantic import BaseModel
+from pydantic import BaseModel,Field
 
 class User(BaseModel):
-    username: str
-    password: str
+    username: str = Field(min_length=8, max_length=20, description='用户名')
+    password: str = Field(min_length=8, max_length=20, description='密码')
+    isAdmin: bool = Field(default=False, description='是否管理员')
 
 #创建 FastAPI 实例
 #启动项目    uvicorn main:app --reload
@@ -16,7 +17,9 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.post("/login")
+
+#请求体参数
+@app.post("/register")
 async def login(user: User):
     return user
 
