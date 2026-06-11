@@ -76,3 +76,55 @@ python -c "import fastmcp; print(fastmcp.__version__)"
 
 
 
+# FastAPI
+
+## 虚拟环境
+
+创建项目
+
+```mark
+mkdir fastAPI-Project
+cd fastAPI-Project
+```
+
+
+
+创建虚拟环境
+
+```mark
+uv venv
+```
+
+
+
+激活虚拟环境
+
+```mark
+#Windows Bash
+
+source .venv/Scripts/activate
+
+```
+
+
+
+安装软件包
+
+1、直接安装
+
+```mark
+uv add "fastmcp==2.11.0"
+
+或
+
+uv pip install "fastmcp==2.11.0"
+```
+
+
+
+2、从requirements.txt安装
+
+```mark
+uv pip install -r requirements.txt
+```
+
